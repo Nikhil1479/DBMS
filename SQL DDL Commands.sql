@@ -4,8 +4,10 @@ Table Student:
 
 Create Table Student:
 create table Student(StudentID varchar(20), Fname varchar(20) NOT NULL, Lname varchar(20),Street varchar(20), City varchar(20), state varchar(20), zip int, StartTerm varchar(20), BirthDate date, FacultyID varchar(20), MajorID varchar(20), Phone int);
+
 Adding Primary Key
 ALTER TABLE student ADD PRIMARY KEY (STUDENTID);
+
 Adding Foreign Keys
 ALTER TABLE student ADD Constraint student_major_id_fk FOREIGN KEY (MAJORID) REFERENCES major (MajorID);
 INSERT INTO student 
@@ -32,12 +34,14 @@ INSERT INTO faculty VALUES('123','Biswajit','11','9854890231','3');
 INSERT INTO faculty VALUES('234','Williams','12','8434890265','1');
 
 INSERT INTO faculty VALUES('444','Collins','21','9674890265','5');
+
 Updating Table Faculty
 UPDATE faculty set ROOMID='1' where facultyid='111';
 UPDATE faculty set ROOMID='2' where facultyid='222';
 UPDATE faculty set ROOMID='3' where facultyid='123';
 UPDATE faculty set ROOMID='4' where facultyid='234';
 UPDATE faculty set ROOMID='4' where facultyid='444';
+
 Adding Foreign Key
 ALTER TABLE faculty ADD CONSTRAINT faculty_roomid_fk FOREIGN KEY (ROOMID) REFERENCES location (ROOMID);
 
@@ -86,7 +90,10 @@ UPDATE crssection set courseid='CO1004' where CSID='1105';
 
 Adding Foreign Key
 ALTER TABLE CRSSECTION ADD CONSTRAINT crssection_courseid_fk FOREIGN KEY (COURSEID) REFERENCES course (COURSEID);
-Table Term
+
+
+Table Term:
+
 Create Table Term
 create table term(TermID varchar(20) PRIMARY KEY, TermDesc varchar(20) NOT NULL, StartDate date, EndDate date);
 
@@ -106,6 +113,7 @@ INSERT INTO term VALUES('SP24','Spring2024',TO_DATE('2024-01-19','YYYY-MM-DD'),T
 
 
 Table Room:
+
 Create Table Room
 create table room(RoomType varchar(20) PRIMARY KEY, RoomDesc varchar(20) NOT NULL);
 
